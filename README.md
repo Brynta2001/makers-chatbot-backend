@@ -42,6 +42,7 @@ The API has the following endpoints:
 - The assistant is able to give information about all items, a specific item, recommend items based on a user's preferences and so on.
 - You can find the OpenAI Assistant API documentation [here](https://platform.openai.com/docs/overview).
 - In order to use the OpenAI Assistant API, you need to create an account and get an API key.
+- The project has committ linting using Husky, so make sure to follow the conventional commit message format. You can find more information about it [here](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ## Author and acknowledgment
 
