@@ -1,73 +1,52 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Makers Tech ChatBot API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+An API built with NestJS for the Makers Tech ChatBot project which connects to OpenAI Assistant API in order to create an assistant that gives the user information about an inventory defined in a CSV file. The assistant has the ability to give details about all items, a specific items, recommend items based on a user's preferences and so on.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Requirements
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Node.js v20.0.0 or higher
+- OpenAI Assistant API key
 
 ## Installation
 
-```bash
-$ yarn install
-```
+1. Clone the repository
+2. Install dependencies
 
-## Running the app
+    ```bash
+    yarn install
+    ```
 
-```bash
-# development
-$ yarn run start
+3. Copy the `.env.template` file to `.env` and fill in the required environment variables.
+4. Run the app with the following command:
 
-# watch mode
-$ yarn run start:dev
+    ```bash
+    yarn start
+    ```
 
-# production mode
-$ yarn run start:prod
-```
+5. The app should now be running on `http://localhost:3000`
 
-## Test
+## Usage
 
-```bash
-# unit tests
-$ yarn run test
+When the app is running, you can access the API assistant using the endpoint `http://localhost:3000/assistant` in your frontend application or using a .
 
-# e2e tests
-$ yarn run test:e2e
+## API Endpoints
 
-# test coverage
-$ yarn run test:cov
-```
+The API has the following endpoints:
 
-## Support
+- `POST /assistant/create-thread` - Creates a new thread with the assistant. This endpoint does not require any request body.
+- `POST /assistant/user-question` - Sends a question from the user to the assistant and gets a response. This endpoint requires the `threadId` and `question` in the request body.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Observations
 
-## Stay in touch
+- The assistant is stateful and requires a thread to be created before sending questions.
+- The assistant is able to give information about all items, a specific item, recommend items based on a user's preferences and so on.
+- You can find the OpenAI Assistant API documentation [here](https://platform.openai.com/docs/overview).
+- In order to use the OpenAI Assistant API, you need to create an account and get an API key.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Author and acknowledgment
+
+- The code was developed by [Bryan Tapia](https://github.com/Brynta2001) using the NestJS framework and the OpenAI Assistant API. Additionally, the project was developed as part of the Makers Tech ChatBot project using the Fernando Herrera's [OpenAI course](https://cursos.devtalles.com/courses/openai).
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+Copyright (c) 2023 Bryan Tapia. This project is [MIT licensed](LICENSE).
